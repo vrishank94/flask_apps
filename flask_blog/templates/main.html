@@ -1,0 +1,50 @@
+{% extends "template.html" %}
+{% block content %}
+  <h2>Welcome to task manager</h2>
+  <p><a href="/logout">Logout</a></p>
+ 
+<h3> To Post </h3>
+   <form action="{{ url_for('add') }}" method="post" class="add">
+        <div>
+        <label>Title:</label>
+        <input name="title" type="text">
+        </div>
+        <div>
+        <label>Post:</label>
+
+        <textarea name="post" rows="5" cols="40"></textarea>
+        </div>
+        <div class="">
+        <input class="button" type="submit" value="Save">
+        </div>
+    </form>
+    <br />
+    <br />
+
+     <h3> TO DELETE </h3>
+   <form action="{{ url_for('delete') }}" method="post" class="delete">
+        <div>
+        <label>Title:</label>
+        <input name="title" type="text">
+    
+        </div>
+        <div class="">
+        <input class="button" type="submit" value="Delete">
+        </div>
+    </form>
+
+    
+
+  <h3>posts</h3>
+  {% for p in posts %}
+  <strong>Title:</strong>{{p.title}} </br>
+  <strong>Post:</strong>{{p.post}} </br>
+  </br>
+  <br />
+
+
+
+
+    
+{% endfor %}
+{% endblock %} 
